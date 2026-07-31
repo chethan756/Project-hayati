@@ -287,7 +287,8 @@ function createHeart(){
 
 
 
-    heart.innerHTML = "💙";
+   const hearts = ["💙", "🩵", "✨", "⭐", "💙"];
+heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)]; 
 
 
 
@@ -389,7 +390,7 @@ function heartBurst(button) {
     const rect = button.getBoundingClientRect();
     
     
-    for (let i = 0; i < 15; i++) {
+    for (let i = 0; i < 80; i++) { 
         
         const heart = document.createElement("div");
         
