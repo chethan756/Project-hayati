@@ -1,3 +1,4 @@
+alert("Hayati JS is working ❤️");
 /* =========================
    PROJECT HAYATI JAVASCRIPT
 ========================= */
