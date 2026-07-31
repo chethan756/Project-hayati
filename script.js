@@ -1,4 +1,4 @@
-alert("JS is working");
+alert("SCRIPT IS WORKING");
 /* =====================================
    PROJECT HAYATI - MAIN JS
 ===================================== */
