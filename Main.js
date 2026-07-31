@@ -1,3 +1,4 @@
+alert("JS loaded");
 /* =========================
    PROJECT HAYATI JAVASCRIPT
 ========================= */
