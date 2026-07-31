@@ -1,0 +1,841 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+    body {
+    height: 100vh;
+    overflow: hidden;
+
+    background: linear-gradient(
+        135deg,
+        #ff758c,
+        #ff7eb3,
+        #ffd1dc
+    );
+
+    position: relative;
+}
+
+
+/* Floating hearts */
+
+body::before {
+
+    content: "❤️ 💕 💗 💖 💘";
+
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    font-size: 40px;
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    opacity: 0.25;
+
+    animation: floatHearts 8s infinite linear;
+
+}
+
+
+@keyframes floatHearts {
+
+    from {
+        transform: translateY(100vh);
+    }
+
+    to {
+        transform: translateY(-100vh);
+    }
+
+}
+
+
+/* Glass card upgrade */
+
+.slide {
+    
+    opacity: 0;
+    
+    transform: translateX(60px) scale(0.95);
+    
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    
+    pointer-events: none;
+    
+}
+
+
+
+.slide.active {
+    
+    opacity: 1;
+    
+    transform: translateX(0) scale(1);
+    
+    pointer-events: auto;
+    
+}
+
+/* Heart button glow */
+
+.heart-btn {
+
+    box-shadow:
+    0 0 20px rgba(255,255,255,0.8);
+
+    animation: heartbeat 1.5s infinite;
+
+}
+
+
+@keyframes heartbeat {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+
+
+.app {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.slide {
+    position: absolute;
+    width: 90%;
+    max-width: 500px;
+    padding: 40px;
+    text-align: center;
+    
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    
+    border-radius: 25px;
+    
+    opacity: 0;
+    transform: translateX(100%);
+    
+    transition: 0.8s ease;
+}
+
+
+.slide.active {
+    
+    opacity: 1;
+    
+    transform: translateX(0) scale(1);
+    
+    animation: slideGlow 0.8s ease;
+    
+}
+
+
+@keyframes slideGlow {
+    
+    0% {
+        
+        opacity: 0;
+        
+        transform: translateX(80px) scale(0.9);
+        
+    }
+    
+    
+    100% {
+        
+        opacity: 1;
+        
+        transform: translateX(0) scale(1);
+        
+    }
+    
+}
+
+
+h1 {
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 20px;
+}
+
+
+p {
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+
+.heart-btn,
+.yes-btn,
+.no-btn {
+    
+    border: none;
+    padding: 15px 30px;
+    
+    border-radius: 50px;
+    
+    font-size: 1.2rem;
+    
+    cursor: pointer;
+    
+    transition: 0.3s;
+}
+
+
+.heart-btn {
+    background: white;
+    color: #ff4b6e;
+}
+
+
+.yes-btn {
+    background: #ff4b6e;
+    color: white;
+}
+
+
+.no-btn {
+    background: white;
+    color: #555;
+}
+
+
+button:hover {
+    transform: scale(1.1);
+}
+.memory {
+    
+    font-size: 45px;
+    
+    margin: 25px 0;
+    
+    animation: sparkle 2s infinite;
+    
+}
+
+
+@keyframes sparkle {
+    
+    0% {
+        transform: scale(1);
+    }
+    
+    50% {
+        transform: scale(1.2);
+    }
+    
+    100% {
+        transform: scale(1);
+    }
+    
+}
+function yesClicked() {
+    
+    alert("Yayy ❤️✨");
+    
+}
+/* Proposal magic */
+
+#proposal h1 {
+    
+    animation: proposalPulse 2s infinite;
+    
+}
+
+
+@keyframes proposalPulse {
+    
+    0% {
+        
+        transform: scale(1);
+        
+    }
+    
+    
+    50% {
+        
+        transform: scale(1.08);
+        
+    }
+    
+    
+    100% {
+        
+        transform: scale(1);
+        
+    }
+    
+}
+
+
+#proposal .yes-btn {
+    
+    animation: yesGlow 1.5s infinite;
+    
+}
+
+
+@keyframes yesGlow {
+    
+    0% {
+        
+        box-shadow: 0 0 5px white;
+        
+    }
+    
+    
+    50% {
+        
+        box-shadow: 0 0 25px white;
+        
+    }
+    
+    
+    100% {
+        
+        box-shadow: 0 0 5px white;
+        
+    }
+    
+}
+#celebration .bear {
+    
+    font-size: 100px;
+    
+    opacity: 0;
+    
+    transform: scale(0.5);
+    
+}
+
+
+#celebration.active .bear {
+    
+    animation: bearAppear 1.5s forwards;
+    
+}
+
+
+@keyframes bearAppear {
+    
+    0% {
+        
+        opacity: 0;
+        transform: scale(0.5);
+        
+    }
+    
+    100% {
+        
+        opacity: 1;
+        transform: scale(1);
+        
+    }
+    
+}
+
+
+
+.love-bar {
+    
+    width: 80%;
+    
+    height: 25px;
+    
+    background: rgba(255, 255, 255, 0.4);
+    
+    border-radius: 50px;
+    
+    overflow: hidden;
+    
+}
+
+
+.progress {
+    
+    width: 1%;
+    
+    height: 100%;
+    
+    background: white;
+    
+    border-radius: 50px;
+    
+}
+.special-intro {
+    
+    position: fixed;
+    
+    top: 0;
+    
+    left: 0;
+    
+    width: 100vw;
+    
+    height: 100vh;
+    
+    background: black;
+    
+    overflow: hidden;
+    
+    z-index: 9999;
+    
+}
+
+
+
+    
+   #gfDayText {
+    
+    position: absolute;
+    
+    top: 50%;
+    
+    left: 50%;
+    
+    transform: translate(-50%, -50%);
+    
+    width: 100%;
+    
+    color: pink;
+    
+    font-size: 2rem;
+    
+    text-align: center;
+    
+    margin: 0;
+    
+    padding: 0;
+    
+}
+
+
+.blue-hearts {
+    
+    position: absolute;
+    
+    top: 0;
+    
+    left: 0;
+    
+    width: 100%;
+    
+    display: flex;
+    
+    justify-content: space-around;
+    
+    font-size: 20px;
+    
+    animation: fallingHearts 5s infinite linear;
+    
+}
+
+
+
+@keyframes fallingHearts {
+    
+    
+    from {
+        
+        transform: translateY(-100px);
+        
+    }
+    
+    
+    to {
+        
+        transform: translateY(110vh);
+        
+    }
+    
+}
+#heartContainer {
+    
+    position: absolute;
+    
+    top: 0;
+    
+    left: 0;
+    
+    width: 100%;
+    
+    height: 100%;
+    
+    overflow: hidden;
+    
+}
+
+
+.blue-heart {
+    
+    position: absolute;
+    
+    top: -20px;
+    
+    color: #4aa3ff;
+    
+    font-size: 18px;
+    
+    animation: fall linear forwards;
+    
+}
+
+
+@keyframes fall {
+    
+    
+    from {
+        
+        transform: translateY(-50px);
+        
+        opacity: 1;
+        
+    }
+    
+    
+    to {
+        
+        transform: translateY(110vh);
+        
+        opacity: 0;
+        
+    }
+    
+}
+.special-intro {
+    
+    opacity: 1;
+    
+}
+.slide {
+    
+    opacity: 0;
+    
+    transition: opacity 1.5s ease;
+    
+}
+
+
+.slide.active {
+    
+    opacity: 1;
+    
+}
+.bear {
+    
+    font-size: 100px;
+    
+    opacity: 0;
+    
+}
+
+
+#celebration.active .bear {
+    
+    animation: bearBounce 1.5s ease forwards;
+    
+}
+
+
+
+@keyframes bearBounce {
+    
+    
+    0% {
+        
+        opacity: 0;
+        
+        transform: translateY(50px) scale(0.5);
+        
+    }
+    
+    
+    60% {
+        
+        opacity: 1;
+        
+        transform: translateY(-20px) scale(1.1);
+        
+    }
+    
+    
+    100% {
+        
+        opacity: 1;
+        
+        transform: translateY(0) scale(1);
+        
+    }
+    
+}
+
+
+
+
+
+.floating-heart {
+    
+    position: absolute;
+    
+    bottom: 20%;
+    
+    font-size: 25px;
+    
+    animation: floatHeart 3s ease-in infinite;
+    
+}
+
+
+
+@keyframes floatHeart {
+    
+    
+    from {
+        
+        transform: translateY(0);
+        
+        opacity: 1;
+        
+    }
+    
+    
+    to {
+        
+        transform: translateY(-250px);
+        
+        opacity: 0;
+        
+    }
+    
+}
+.burst-heart {
+    
+    position: fixed;
+    
+    font-size: 20px;
+    
+    pointer-events: none;
+    
+    animation: burst 1s ease forwards;
+    
+}
+
+
+@keyframes burst {
+    
+    0% {
+        
+        transform: translate(0, 0) scale(1);
+        
+        opacity: 1;
+        
+    }
+    
+    
+    100% {
+        
+        transform: translate(var(--x), var(--y)) scale(0);
+        
+        opacity: 0;
+        
+    }
+    
+}
+.burst-heart {
+    
+    position: fixed;
+    
+    z-index: 99999;
+    
+    font-size: 25px;
+    
+    pointer-events: none;
+    
+    animation: heartBurstAnim 1s ease-out forwards;
+    
+}
+
+
+@keyframes heartBurstAnim {
+    
+    from {
+        
+        transform: translate(0, 0) scale(1);
+        
+        opacity: 1;
+        
+    }
+    
+    
+    to {
+        
+        transform: translate(var(--x), var(--y)) scale(0);
+        
+        opacity: 0;
+        
+    }
+    
+}
+.slide.exit {
+    
+    opacity: 0;
+    
+    transform: translateX(-60px) scale(0.95);
+    
+}
+#letter p {
+    
+    opacity: 0;
+    
+    animation: letterReveal 2.5s ease forwards;
+    
+}
+
+
+
+@keyframes letterReveal {
+    
+    from {
+        
+        opacity: 0;
+        
+        transform: translateY(40px);
+        
+        filter: blur(5px);
+        
+    }
+    
+    
+    to {
+        
+        opacity: 1;
+        
+        transform: translateY(0);
+        
+        filter: blur(0);
+        
+    }
+    
+}
+#proposal h1 {
+    
+    animation: heartbeat 1.5s infinite;
+    
+}
+
+
+#proposal {
+    
+    animation: proposalGlow 3s infinite alternate;
+    
+}
+
+
+
+@keyframes heartbeat {
+    
+    0% {
+        
+        transform: scale(1);
+        
+    }
+    
+    
+    50% {
+        
+        transform: scale(1.1);
+        
+    }
+    
+    
+    100% {
+        
+        transform: scale(1);
+        
+    }
+    
+}
+
+
+
+@keyframes proposalGlow {
+    
+    from {
+        
+        filter: brightness(1);
+        
+    }
+    
+    
+    to {
+        
+        filter: brightness(1.2);
+        
+    }
+    
+}
+#proposal .yes-btn {
+    
+    animation: yesPulse 1.5s infinite;
+    
+}
+
+
+
+@keyframes yesPulse {
+    
+    0% {
+        
+        transform: scale(1);
+        
+    }
+    
+    
+    50% {
+        
+        transform: scale(1.08);
+        
+    }
+    
+    
+    100% {
+        
+        transform: scale(1);
+        
+    }
+    
+}
+
+
+
+
+
+#proposal .no-btn:hover {
+    
+    transform: scale(1.12);
+    
+    transition: 0.3s;
+    
+}
