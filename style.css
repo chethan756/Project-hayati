@@ -851,3 +851,29 @@ button:hover {
     }
 
 }
+.special-intro {
+    animation: introZoom 6s ease forwards;
+}
+
+@keyframes introZoom {
+
+    0% {
+        transform: scale(1.15);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+
+#gfDayText {
+
+    text-shadow:
+        0 0 10px #4aa3ff,
+        0 0 20px #4aa3ff,
+        0 0 35px white;
+
+    letter-spacing: 2px;
+
+}
