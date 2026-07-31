@@ -205,7 +205,7 @@ function startLoveCounter(){
 // =====================
 
 
-const gfText = "Happy GF Day cutie pie 🫣💙";
+const gfText = "Happy Girlfriend's Day, My Hayati 💙";
 
 
 let gfIndex = 0;
