@@ -1,260 +1,170 @@
+/* =====================================
+   PROJECT HAYATI - MAIN JS
+===================================== */
+
+
 let currentSlide = 0;
 
 const slides = document.querySelectorAll(".slide");
 
 
-// =====================
-// SLIDE SYSTEM
-// =====================
 
-function nextSlide() {
 
-    slides[currentSlide].classList.remove("active");
 
-    currentSlide++;
+/* =========================
+   INTRO SCREEN
+========================= */
 
 
-    if (currentSlide >= slides.length) {
+window.onload = () => {
 
-        currentSlide = slides.length - 1;
+    createBlueHearts();
 
-    }
+    typeIntro();
 
 
-    slides[currentSlide].classList.add("active");
+    setTimeout(() => {
 
-}
-
-
-
-
-// =====================
-// PROPOSAL BUTTONS
-// =====================
-
-function yesClicked() {
-
-    slides[currentSlide].classList.remove("active");
-
-
-    currentSlide = slides.length - 1;
-
-
-    slides[currentSlide].classList.add("active");
-
-
-    startLoveCounter();
-
-}
-
-
-
-
-function restart() {
-
-    slides[currentSlide].classList.remove("active");
-
-
-    currentSlide = 0;
-
-
-    slides[currentSlide].classList.add("active");
-
-}
-
-
-
-
-
-// =====================
-// FIRST SLIDE TYPING
-// =====================
-
-const titleText = "Hey Jasmine ❤️";
-
-const messageText = "I made something special for you... ✨";
-
-
-let titleIndex = 0;
-
-let messageIndex = 0;
-
-
-
-function typeTitle() {
-
-
-    const title = document.getElementById("title");
-
-
-    if(title && titleIndex < titleText.length){
-
-
-        title.innerHTML += titleText.charAt(titleIndex);
-
-
-        titleIndex++;
-
-
-        setTimeout(typeTitle,120);
-
-
-    }
-
-
-}
-
-
-
-
-function typeMessage(){
-
-
-    const message = document.getElementById("message");
-
-
-    if(message && messageIndex < messageText.length){
-
-
-        message.innerHTML += messageText.charAt(messageIndex);
-
-
-        messageIndex++;
-
-
-        setTimeout(typeMessage,90);
-
-
-    }
-
-
-}
-
-
-
-
-typeTitle();
-
-
-setTimeout(typeMessage,1500);
-
-
-
-
-
-
-// =====================
-// LOVE BAR
-// =====================
-
-function startLoveCounter(){
-
-
-    let percent = 1;
-
-
-    const counter = document.getElementById("infinity");
-
-    const bar = document.querySelector(".progress");
-
-
-
-    let timer = setInterval(()=>{
-
-
-        if(percent < 100){
-
-
-            percent++;
-
-
-            counter.innerHTML = percent + "% ❤️";
-
-
-            bar.style.width = percent + "%";
-
-
-        }
-
-
-        else{
-
-
-            counter.innerHTML = "∞% ❤️";
-
-
-            clearInterval(timer);
-
-
-        }
-
-
-    },50);
-
-
-}
-
-
-
-
-
-
-
-// =====================
-// GF DAY INTRO SCREEN
-// =====================
-
-
-const gfText = "Happy Girlfriend's Day, My Hayati 💙";
-
-
-let gfIndex = 0;
-
-
-
-function typeGFDay(){
-
-
-    const text = document.getElementById("gfDayText");
-
-
-
-    if(text && gfIndex < gfText.length){
-
-
-        text.innerHTML += gfText.charAt(gfIndex);
-
-
-        gfIndex++;
-
-
-    // Fade intro away
-
-setTimeout(() => {
-
-    const intro = document.getElementById("specialIntro");
-
-    if (intro) {
-
-        intro.style.transition = "opacity 2s ease";
-
-        intro.style.opacity = "0";
+        document.getElementById("specialIntro").style.opacity = "0";
 
         setTimeout(() => {
 
-            intro.style.display = "none";
+            document.getElementById("specialIntro").style.display = "none";
 
-            slides[0].classList.add("active");
+        },2000);
 
-            typeTitle();
 
-            setTimeout(typeMessage, 1500);
+    },5000);
 
-        }, 2000);
+
+};
+
+
+
+
+
+function createBlueHearts(){
+
+    const container =
+    document.getElementById("heartContainer");
+
+
+    setInterval(()=>{
+
+
+        const heart =
+        document.createElement("div");
+
+
+        heart.className="blue-heart";
+
+        heart.innerHTML="💙";
+
+
+        heart.style.left =
+        Math.random()*100+"%";
+
+
+        heart.style.animationDuration =
+        (2+Math.random()*3)+"s";
+
+
+        container.appendChild(heart);
+
+
+
+        setTimeout(()=>{
+
+            heart.remove();
+
+        },5000);
+
+
+
+    },150);
+
+
+}
+
+
+
+
+
+function typeIntro(){
+
+
+    const text =
+    "Happy Girlfriend Day ❤️";
+
+
+    const element =
+    document.getElementById("gfDayText");
+
+
+    let i=0;
+
+
+    let timer=setInterval(()=>{
+
+
+        element.innerHTML += text[i];
+
+
+        i++;
+
+
+        if(i>=text.length){
+
+            clearInterval(timer);
+
+        }
+
+
+    },120);
+
+
+
+}
+
+
+
+
+
+
+
+/* =========================
+   SLIDE SYSTEM
+========================= */
+
+
+function nextSlide(){
+
+
+    if(currentSlide < slides.length-1){
+
+
+        slides[currentSlide]
+        .classList.remove("active");
+
+
+        slides[currentSlide]
+        .classList.add("exit");
+
+
+
+        currentSlide++;
+
+
+
+        slides[currentSlide]
+        .classList.add("active");
+
+
 
     }
 
-}, 6000);
+
+}
 
 
 
@@ -262,57 +172,41 @@ setTimeout(() => {
 
 
 
+/* =========================
+   PROPOSAL YES
+========================= */
 
 
-// =====================
-// FALLING BLUE HEARTS
-// =====================
+function yesClicked(){
 
 
-function createHeart(){
-
-
-    const container = document.getElementById("heartContainer");
-
-
-    if(!container) return;
-
-
-
-    const heart = document.createElement("div");
-
-
-
-    heart.className = "blue-heart";
-
-
-
-   const hearts = ["💙", "🩵", "✨", "⭐", "💙"];
-heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)]; 
-
-
-
-    heart.style.left = Math.random() * 100 + "%";
-
-
-    heart.style.fontSize = (10 + Math.random()*25) + "px";
-
-
-    heart.style.animationDuration = (1.5 + Math.random()*2) + "s";
-
-
-
-    container.appendChild(heart);
+    bigHeartBurst();
 
 
 
     setTimeout(()=>{
 
 
-        heart.remove();
+        slides[currentSlide]
+        .classList.remove("active");
 
 
-    },4000);
+
+        currentSlide =
+        slides.length-1;
+
+
+
+        slides[currentSlide]
+        .classList.add("active");
+
+
+
+        startLoveProgress();
+
+
+    },700);
+
 
 
 }
@@ -321,213 +215,173 @@ heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
 
 
 
-setInterval(()=>{
 
 
-    for(let i = 0; i < 50; i++){
+/* =========================
+   HEART EXPLOSION
+========================= */
 
 
-        createHeart();
+function bigHeartBurst(){
 
 
-    }
+    for(let i=0;i<40;i++){
 
 
-},2000);
-function createFloatingHeart() {
-    
-    
-    const celebration = document.getElementById("celebration");
-    
-    
-    if (!celebration) return;
-    
-    
-    const heart = document.createElement("div");
-    
-    
-    heart.className = "floating-heart";
-    
-    
-    heart.innerHTML = "❤️";
-    
-    
-    heart.style.left = Math.random() * 100 + "%";
-    
-    
-    celebration.appendChild(heart);
-    
-    
-    
-    setTimeout(() => {
-        
-        heart.remove();
-        
-    }, 3000);
-    
-    
-}
+        const heart =
+        document.createElement("div");
+
+
+        heart.className="burst-heart";
+
+
+        heart.innerHTML="❤️";
+
+
+        heart.style.left="50%";
+
+        heart.style.top="50%";
 
 
 
-
-setInterval(() => {
-    
-    
-    if (document.getElementById("celebration").classList.contains("active")) {
-        
-        
-        createFloatingHeart();
-        
-        
-    }
-    
-    
-}, 300);
-
-function heartBurst(button) {
-    
-    const rect = button.getBoundingClientRect();
-    
-    
-    for (let i = 0; i < 80; i++) { 
-        
-        const heart = document.createElement("div");
-        
-        heart.className = "burst-heart";
-        
-        heart.innerHTML = "❤️";
-        
-        
-        heart.style.left = rect.left + rect.width / 2 + "px";
-        
-        heart.style.top = rect.top + rect.height / 2 + "px";
-        
-        
-        heart.style.setProperty("--x",
-            (Math.random() * 200 - 100) + "px"
+        heart.style.setProperty(
+            "--x",
+            (Math.random()*500-250)+"px"
         );
-        
-        
-        heart.style.setProperty("--y",
-            (Math.random() * 200 - 100) + "px"
+
+
+        heart.style.setProperty(
+            "--y",
+            (Math.random()*500-250)+"px"
         );
-        
-        
+
+
+
         document.body.appendChild(heart);
-        
-        
-        setTimeout(() => {
-            
+
+
+
+        setTimeout(()=>{
+
             heart.remove();
-            
-        }, 1000);
-        
+
+        },1000);
+
+
+
     }
-    
+
+
 }
-document.querySelectorAll(".heart-btn").forEach(button => {
-    
-    button.addEventListener("click", function() {
-        
-        createButtonBurst(this);
-        
+
+
+
+
+
+
+
+
+/* =========================
+   LOVE BAR
+========================= */
+
+
+function startLoveProgress(){
+
+
+    let percent=1;
+
+
+    const bar =
+    document.querySelector(".progress");
+
+
+    const number =
+    document.getElementById("infinity");
+
+
+
+    let timer=setInterval(()=>{
+
+
+        percent++;
+
+
+        if(percent>=100){
+
+
+            clearInterval(timer);
+
+
+            number.innerHTML="∞%";
+
+
+            bar.style.width="100%";
+
+
+            return;
+
+        }
+
+
+
+        bar.style.width=
+        percent+"%";
+
+
+        number.innerHTML=
+        percent+"%";
+
+
+
+    },40);
+
+
+
+}
+
+
+
+
+
+
+
+/* =========================
+   RESTART
+========================= */
+
+
+function restart(){
+
+
+    slides.forEach(slide=>{
+
+
+        slide.classList.remove("active");
+
+        slide.classList.remove("exit");
+
+
     });
-    
-});
 
 
 
-function createButtonBurst(button) {
-    
-    const rect = button.getBoundingClientRect();
-    
-    
-    for (let i = 0; i < 12; i++) {
-        
-        const heart = document.createElement("div");
-        
-        heart.className = "burst-heart";
-        
-        heart.innerHTML = "❤️";
-        
-        
-        heart.style.left = rect.left + rect.width / 2 + "px";
-        
-        heart.style.top = rect.top + rect.height / 2 + "px";
-        
-        
-        heart.style.setProperty("--x",
-            (Math.random() * 200 - 100) + "px"
-        );
-        
-        
-        heart.style.setProperty("--y",
-            (Math.random() * 200 - 100) + "px"
-        );
-        
-        
-        document.body.appendChild(heart);
-        
-        
-        setTimeout(() => {
-            
-            heart.remove();
-            
-        }, 1000);
-        
-    }
-    
-}
-function bigHeartBurst() {
-    
-    
-    for (let i = 0; i < 35; i++) {
-        
-        
-        const heart = document.createElement("div");
-        
-        
-        heart.className = "burst-heart";
-        
-        
-        heart.innerHTML = "💖";
-        
-        
-        heart.style.left = "50%";
-        
-        heart.style.top = "50%";
-        
-        
-        heart.style.fontSize =
-            (20 + Math.random() * 30) + "px";
-        
-        
-        heart.style.setProperty("--x",
-            
-            (Math.random() * 400 - 200) + "px"
-            
-        );
-        
-        
-        heart.style.setProperty("--y",
-            
-            (Math.random() * 400 - 200) + "px"
-            
-        );
-        
-        
-        document.body.appendChild(heart);
-        
-        
-        
-        setTimeout(() => {
-            
-            heart.remove();
-            
-        }, 1200);
-        
-        
-    }
-    
+    currentSlide=0;
+
+
+    slides[0]
+    .classList.add("active");
+
+
+
+    document.querySelector(".progress")
+    .style.width="1%";
+
+
+
+    document.getElementById("infinity")
+    .innerHTML="1%";
+
+
+
 }
