@@ -1,1 +1,561 @@
- 
+ /* =========================
+   PROJECT HAYATI CSS
+   PART 1
+========================= */
+
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+    font-family: 'Poppins', sans-serif;
+
+}
+
+
+
+body {
+
+    height: 100vh;
+
+    overflow: hidden;
+
+    background: linear-gradient(
+        135deg,
+        #ff758c,
+        #ff7eb3,
+        #ffd1dc
+    );
+
+}
+
+
+
+
+/* =========================
+   SPECIAL INTRO
+========================= */
+
+
+.special-intro {
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    width: 100vw;
+
+    height: 100vh;
+
+    background: black;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    z-index: 9999;
+
+    overflow: hidden;
+
+}
+
+
+
+#gfDayText {
+
+    color: pink;
+
+    font-size: 2rem;
+
+    width: 90%;
+
+    text-align: center;
+
+    position: relative;
+
+    z-index: 2;
+
+}
+
+
+
+
+
+/* Falling Blue Hearts */
+
+
+#heartContainer {
+
+    position: absolute;
+
+    width: 100%;
+
+    height: 100%;
+
+    top: 0;
+
+    left: 0;
+
+    overflow: hidden;
+
+}
+
+
+
+.blue-heart {
+
+    position: absolute;
+
+    top: -20px;
+
+    color: #4aa3ff;
+
+    animation: fall linear forwards;
+
+}
+
+
+
+@keyframes fall {
+
+
+    from {
+
+        transform: translateY(-50px);
+
+    }
+
+
+    to {
+
+        transform: translateY(110vh);
+
+    }
+
+}
+/* =========================
+   SLIDE SYSTEM
+========================= */
+
+
+.app {
+    
+    height: 100vh;
+    
+    width: 100%;
+    
+    position: relative;
+    
+}
+
+
+
+.slide {
+    
+    position: absolute;
+    
+    width: 100%;
+    
+    height: 100vh;
+    
+    padding: 30px;
+    
+    display: flex;
+    
+    flex-direction: column;
+    
+    justify-content: center;
+    
+    align-items: center;
+    
+    text-align: center;
+    
+    opacity: 0;
+    
+    transform: translateX(60px) scale(0.96);
+    
+    transition: all 0.8s ease;
+    
+    pointer-events: none;
+    
+}
+
+
+
+.slide.active {
+    
+    opacity: 1;
+    
+    transform: translateX(0) scale(1);
+    
+    pointer-events: auto;
+    
+}
+
+
+
+
+/* =========================
+   TEXT STYLING
+========================= */
+
+
+.slide h1 {
+    
+    color: white;
+    
+    font-size: 2.3rem;
+    
+    margin-bottom: 20px;
+    
+}
+
+
+
+.slide p {
+    
+    color: white;
+    
+    font-size: 1.1rem;
+    
+    line-height: 1.8;
+    
+    max-width: 90%;
+    
+}
+
+
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+
+.heart-btn {
+    
+    margin-top: 35px;
+    
+    padding: 14px 35px;
+    
+    border: none;
+    
+    border-radius: 50px;
+    
+    background: white;
+    
+    color: #ff4f81;
+    
+    font-size: 1.1rem;
+    
+    cursor: pointer;
+    
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    
+    transition: 0.3s;
+    
+}
+
+
+
+.heart-btn:active {
+    
+    transform: scale(0.9);
+    
+}
+
+
+
+
+.yes-btn {
+    
+    background: #ff4f81;
+    
+    color: white;
+    
+}
+
+
+
+.no-btn {
+    
+    background: #ff85a2;
+    
+    color: white;
+    
+}
+
+
+
+
+/* Button pulse */
+
+
+.yes-btn {
+    
+    animation: yesPulse 1.5s infinite;
+    
+}
+
+
+
+@keyframes yesPulse {
+    
+    
+    0% {
+        
+        transform: scale(1);
+        
+    }
+    
+    
+    50% {
+        
+        transform: scale(1.08);
+        
+    }
+    
+    
+    100% {
+        
+        transform: scale(1);
+        
+    }
+    
+}
+/* =========================
+   LETTER EFFECT
+========================= */
+
+
+#letter p {
+    
+    animation: letterReveal 2s ease forwards;
+    
+}
+
+
+
+@keyframes letterReveal {
+    
+    
+    from {
+        
+        opacity: 0;
+        
+        transform: translateY(40px);
+        
+        filter: blur(5px);
+        
+    }
+    
+    
+    to {
+        
+        opacity: 1;
+        
+        transform: translateY(0);
+        
+        filter: blur(0);
+        
+    }
+    
+}
+
+
+
+
+
+/* =========================
+   PROPOSAL EFFECT
+========================= */
+
+
+#proposal {
+    
+    animation: proposalGlow 3s infinite alternate;
+    
+}
+
+
+
+#proposal h1 {
+    
+    animation: heartbeat 1.5s infinite;
+    
+}
+
+
+
+@keyframes heartbeat {
+    
+    
+    0% {
+        
+        transform: scale(1);
+        
+    }
+    
+    
+    50% {
+        
+        transform: scale(1.1);
+        
+    }
+    
+    
+    100% {
+        
+        transform: scale(1);
+        
+    }
+    
+}
+
+
+
+
+@keyframes proposalGlow {
+    
+    
+    from {
+        
+        filter: brightness(1);
+        
+    }
+    
+    
+    to {
+        
+        filter: brightness(1.2);
+        
+    }
+    
+}
+
+
+
+
+
+/* =========================
+   FINAL BEAR SCREEN
+========================= */
+
+
+.bear {
+    
+    font-size: 100px;
+    
+    opacity: 0;
+    
+}
+
+
+
+#celebration.active .bear {
+    
+    
+    animation: bearBounce 1.5s forwards;
+    
+    
+}
+
+
+
+@keyframes bearBounce {
+    
+    
+    0% {
+        
+        opacity: 0;
+        
+        transform: translateY(50px) scale(0.5);
+        
+    }
+    
+    
+    60% {
+        
+        opacity: 1;
+        
+        transform: translateY(-20px) scale(1.1);
+        
+    }
+    
+    
+    100% {
+        
+        opacity: 1;
+        
+        transform: translateY(0) scale(1);
+        
+    }
+    
+}
+
+
+
+
+/* =========================
+   LOVE PROGRESS BAR
+========================= */
+
+
+.love-bar {
+    
+    width: 80%;
+    
+    height: 25px;
+    
+    background: rgba(255, 255, 255, 0.4);
+    
+    border-radius: 50px;
+    
+    overflow: hidden;
+    
+    margin-top: 20px;
+    
+}
+
+
+
+.progress {
+    
+    height: 100%;
+    
+    width: 1%;
+    
+    background: white;
+    
+    border-radius: 50px;
+    
+    transition: width 0.5s ease;
+    
+}
+
+
+
+
+
+/* Signature */
+
+
+.signature {
+    
+    margin-top: 20px;
+    
+    font-style: italic;
+    
+    font-size: 1.2rem;
+    
+}
