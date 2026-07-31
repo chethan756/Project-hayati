@@ -251,11 +251,7 @@ button:hover {
     }
     
 }
-function yesClicked() {
-    
-    alert("Yayy ❤️✨");
-    
-}
+
 /* Proposal magic */
 
 #proposal h1 {
@@ -385,6 +381,7 @@ function yesClicked() {
     
 }
 .special-intro {
+    display: none;
     
     position: fixed;
     
