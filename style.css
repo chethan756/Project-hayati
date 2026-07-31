@@ -424,7 +424,7 @@ button:hover {
 
 
 .special-intro {
-
+display:none;
     position:fixed;
 
     inset:0;
