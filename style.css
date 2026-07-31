@@ -1,3 +1,7 @@
+/* =====================================
+   PROJECT HAYATI - PART 1
+===================================== */
+
 * {
     margin: 0;
     padding: 0;
@@ -5,73 +9,79 @@
     font-family: 'Poppins', sans-serif;
 }
 
-    body {
+body {
+    width: 100%;
     height: 100vh;
     overflow: hidden;
-
-    background: linear-gradient(
-        135deg,
-        #ff758c,
-        #ff7eb3,
-        #ffd1dc
-    );
-
     position: relative;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3, #ffd1dc);
 }
 
-
-/* Floating hearts */
+/* Floating background hearts */
 
 body::before {
-
-    content: "❤️ 💕 💗 💖 💘";
-
+    content: "❤️ 💕 💖 💗 💘";
     position: absolute;
-
-    width: 100%;
-    height: 100%;
-
-    font-size: 40px;
-
+    inset: 0;
     display: flex;
     justify-content: space-around;
     align-items: center;
-
-    opacity: 0.25;
-
-    animation: floatHearts 8s infinite linear;
-
+    font-size: 40px;
+    opacity: .18;
+    animation: floatHearts 10s linear infinite;
+    pointer-events: none;
 }
 
-
 @keyframes floatHearts {
-
+    
     from {
         transform: translateY(100vh);
     }
-
+    
     to {
         transform: translateY(-100vh);
     }
-
+    
 }
 
+.app {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
 
-/* Glass card upgrade */
+/* Slides */
 
 .slide {
     
+    position: absolute;
+    
+    width: 90%;
+    
+    max-width: 520px;
+    
+    padding: 35px;
+    
+    border-radius: 25px;
+    
+    background: rgba(255, 255, 255, .20);
+    
+    backdrop-filter: blur(14px);
+    
+    text-align: center;
+    
     opacity: 0;
     
-    transform: translateX(60px) scale(0.95);
-    
-    transition: opacity 0.8s ease, transform 0.8s ease;
+    transform: translateX(70px) scale(.95);
     
     pointer-events: none;
     
+    transition: .8s ease;
+    
 }
-
-
 
 .slide.active {
     
@@ -83,158 +93,113 @@ body::before {
     
 }
 
-/* Heart button glow */
-
-.heart-btn {
-
-    box-shadow:
-    0 0 20px rgba(255,255,255,0.8);
-
-    animation: heartbeat 1.5s infinite;
-
-}
-
-
-@keyframes heartbeat {
-
-    0% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.15);
-    }
-
-    100% {
-        transform: scale(1);
-    }
-
-}
-
-
-.app {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-
-.slide {
-    position: absolute;
-    width: 90%;
-    max-width: 500px;
-    padding: 40px;
-    text-align: center;
-    
-    background: rgba(255, 255, 255, 0.25);
-    backdrop-filter: blur(10px);
-    
-    border-radius: 25px;
-    
-    opacity: 0;
-    transform: translateX(100%);
-    
-    transition: 0.8s ease;
-}
-
-
-.slide.active {
-    
-    opacity: 1;
-    
-    transform: translateX(0) scale(1);
-    
-    animation: slideGlow 0.8s ease;
-    
-}
-
-
-@keyframes slideGlow {
-    
-    0% {
-        
-        opacity: 0;
-        
-        transform: translateX(80px) scale(0.9);
-        
-    }
-    
-    
-    100% {
-        
-        opacity: 1;
-        
-        transform: translateX(0) scale(1);
-        
-    }
-    
-}
-
-
 h1 {
-    font-size: 2.5rem;
-    color: white;
+    
+    color: #fff;
+    
+    font-size: 2.4rem;
+    
     margin-bottom: 20px;
+    
 }
 
+h2 {
+    
+    color: #fff;
+    
+    margin-bottom: 15px;
+    
+}
 
 p {
-    color: white;
-    font-size: 1.2rem;
-    margin-bottom: 30px;
+    
+    color: #fff;
+    
+    line-height: 1.7;
+    
+    font-size: 1.1rem;
+    
+    margin-bottom: 25px;
+    
 }
 
+/* Buttons */
 
-.heart-btn,
-.yes-btn,
-.no-btn {
+button {
     
     border: none;
-    padding: 15px 30px;
-    
-    border-radius: 50px;
-    
-    font-size: 1.2rem;
     
     cursor: pointer;
     
-    transition: 0.3s;
+    padding: 15px 30px;
+    
+    border-radius: 999px;
+    
+    font-size: 1rem;
+    
+    transition: .3s;
+    
 }
-
-
-.heart-btn {
-    background: white;
-    color: #ff4b6e;
-}
-
-
-.yes-btn {
-    background: #ff4b6e;
-    color: white;
-}
-
-
-.no-btn {
-    background: white;
-    color: #555;
-}
-
 
 button:hover {
-    transform: scale(1.1);
+    
+    transform: scale(1.08);
+    
 }
+
+.heart-btn {
+    
+    background: #fff;
+    
+    color: #ff4b6e;
+    
+    box-shadow: 0 0 20px rgba(255, 255, 255, .7);
+    
+    animation: heartbeat 1.5s infinite;
+    
+}
+
+.yes-btn {
+    
+    background: #ff4b6e;
+    
+    color: #fff;
+    
+}
+
+.no-btn {
+    
+    background: #fff;
+    
+    color: #555;
+    
+}
+
+@keyframes heartbeat {
+    
+    0% {
+        transform: scale(1);
+    }
+    
+    50% {
+        transform: scale(1.08);
+    }
+    
+    100% {
+        transform: scale(1);
+    }
+    
+}
+
 .memory {
     
     font-size: 45px;
     
-    margin: 25px 0;
+    margin: 20px 0;
     
     animation: sparkle 2s infinite;
     
 }
-
 
 @keyframes sparkle {
     
@@ -243,7 +208,7 @@ button:hover {
     }
     
     50% {
-        transform: scale(1.2);
+        transform: scale(1.15);
     }
     
     100% {
@@ -252,495 +217,7 @@ button:hover {
     
 }
 
-/* Proposal magic */
-
-#proposal h1 {
-    
-    animation: proposalPulse 2s infinite;
-    
-}
-
-
-@keyframes proposalPulse {
-    
-    0% {
-        
-        transform: scale(1);
-        
-    }
-    
-    
-    50% {
-        
-        transform: scale(1.08);
-        
-    }
-    
-    
-    100% {
-        
-        transform: scale(1);
-        
-    }
-    
-}
-
-
-#proposal .yes-btn {
-    
-    animation: yesGlow 1.5s infinite;
-    
-}
-
-
-@keyframes yesGlow {
-    
-    0% {
-        
-        box-shadow: 0 0 5px white;
-        
-    }
-    
-    
-    50% {
-        
-        box-shadow: 0 0 25px white;
-        
-    }
-    
-    
-    100% {
-        
-        box-shadow: 0 0 5px white;
-        
-    }
-    
-}
-#celebration .bear {
-    
-    font-size: 100px;
-    
-    opacity: 0;
-    
-    transform: scale(0.5);
-    
-}
-
-
-#celebration.active .bear {
-    
-    animation: bearAppear 1.5s forwards;
-    
-}
-
-
-@keyframes bearAppear {
-    
-    0% {
-        
-        opacity: 0;
-        transform: scale(0.5);
-        
-    }
-    
-    100% {
-        
-        opacity: 1;
-        transform: scale(1);
-        
-    }
-    
-}
-
-
-
-.love-bar {
-    
-    width: 80%;
-    
-    height: 25px;
-    
-    background: rgba(255, 255, 255, 0.4);
-    
-    border-radius: 50px;
-    
-    overflow: hidden;
-    
-}
-
-
-.progress {
-    
-    width: 1%;
-    
-    height: 100%;
-    
-    background: white;
-    
-    border-radius: 50px;
-    
-}
-.special-intro {
-    
-    position: fixed;
-    
-    top: 0;
-    
-    left: 0;
-    
-    width: 100vw;
-    
-    height: 100vh;
-    
-    background: black;
-    
-    overflow: hidden;
-    
-    z-index: 9999;
-    
-}
-
-
-
-    
-   #gfDayText {
-    
-    position: absolute;
-    
-    top: 50%;
-    
-    left: 50%;
-    
-    transform: translate(-50%, -50%);
-    
-    width: 100%;
-    
-    color: pink;
-    
-    font-size: 2rem;
-    
-    text-align: center;
-    
-    margin: 0;
-    
-    padding: 0;
-    
-}
-
-
-.blue-hearts {
-    
-    position: absolute;
-    
-    top: 0;
-    
-    left: 0;
-    
-    width: 100%;
-    
-    display: flex;
-    
-    justify-content: space-around;
-    
-    font-size: 20px;
-    
-    animation: fallingHearts 5s infinite linear;
-    
-}
-
-
-
-@keyframes fallingHearts {
-    
-    
-    from {
-        
-        transform: translateY(-100px);
-        
-    }
-    
-    
-    to {
-        
-        transform: translateY(110vh);
-        
-    }
-    
-}
-#heartContainer {
-    
-    position: absolute;
-    
-    top: 0;
-    
-    left: 0;
-    
-    width: 100%;
-    
-    height: 100%;
-    
-    overflow: hidden;
-    
-}
-
-
-.blue-heart {
-    
-    position: absolute;
-    
-    top: -20px;
-    
-    color: #4aa3ff;
-    
-    font-size: 18px;
-    
-    animation: fall linear forwards;
-    
-}
-
-
-@keyframes fall {
-    
-    
-    from {
-        
-        transform: translateY(-50px);
-        
-        opacity: 1;
-        
-    }
-    
-    
-    to {
-        
-        transform: translateY(110vh);
-        
-        opacity: 0;
-        
-    }
-    
-}
-.special-intro {
-    
-    opacity: 1;
-    
-}
-.slide {
-    
-    opacity: 0;
-    
-    transition: opacity 1.5s ease;
-    
-}
-
-
-.slide.active {
-    
-    opacity: 1;
-    
-}
-.bear {
-    
-    font-size: 100px;
-    
-    opacity: 0;
-    
-}
-
-
-#celebration.active .bear {
-    
-    animation: bearBounce 1.5s ease forwards;
-    
-}
-
-
-
-@keyframes bearBounce {
-    
-    
-    0% {
-        
-        opacity: 0;
-        
-        transform: translateY(50px) scale(0.5);
-        
-    }
-    
-    
-    60% {
-        
-        opacity: 1;
-        
-        transform: translateY(-20px) scale(1.1);
-        
-    }
-    
-    
-    100% {
-        
-        opacity: 1;
-        
-        transform: translateY(0) scale(1);
-        
-    }
-    
-}
-
-
-
-
-
-.floating-heart {
-    
-    position: absolute;
-    
-    bottom: 20%;
-    
-    font-size: 25px;
-    
-    animation: floatHeart 3s ease-in infinite;
-    
-}
-
-
-
-@keyframes floatHeart {
-    
-    
-    from {
-        
-        transform: translateY(0);
-        
-        opacity: 1;
-        
-    }
-    
-    
-    to {
-        
-        transform: translateY(-250px);
-        
-        opacity: 0;
-        
-    }
-    
-}
-.burst-heart {
-    
-    position: fixed;
-    
-    font-size: 20px;
-    
-    pointer-events: none;
-    
-    animation: burst 1s ease forwards;
-    
-}
-
-
-@keyframes burst {
-    
-    0% {
-        
-        transform: translate(0, 0) scale(1);
-        
-        opacity: 1;
-        
-    }
-    
-    
-    100% {
-        
-        transform: translate(var(--x), var(--y)) scale(0);
-        
-        opacity: 0;
-        
-    }
-    
-}
-.burst-heart {
-    
-    position: fixed;
-    
-    z-index: 99999;
-    
-    font-size: 25px;
-    
-    pointer-events: none;
-    
-    animation: heartBurstAnim 1s ease-out forwards;
-    
-}
-
-
-@keyframes heartBurstAnim {
-    
-    from {
-        
-        transform: translate(0, 0) scale(1);
-        
-        opacity: 1;
-        
-    }
-    
-    
-    to {
-        
-        transform: translate(var(--x), var(--y)) scale(0);
-        
-        opacity: 0;
-        
-    }
-    
-}
-.slide.exit {
-    
-    opacity: 0;
-    
-    transform: translateX(-60px) scale(0.95);
-    
-}
-#letter p {
-    
-    opacity: 0;
-    
-    animation: letterReveal 2.5s ease forwards;
-    
-}
-
-
-
-@keyframes letterReveal {
-    
-    from {
-        
-        opacity: 0;
-        
-        transform: translateY(40px);
-        
-        filter: blur(5px);
-        
-    }
-    
-    
-    to {
-        
-        opacity: 1;
-        
-        transform: translateY(0);
-        
-        filter: blur(0);
-        
-    }
-    
-}
-#proposal h1 {
-    
-    animation: heartbeat 1.5s infinite;
-    
-}
-
+/* Proposal */
 
 #proposal {
     
@@ -748,132 +225,349 @@ button:hover {
     
 }
 
-
-
-@keyframes heartbeat {
+#proposal h1 {
     
-    0% {
-        
-        transform: scale(1);
-        
-    }
-    
-    
-    50% {
-        
-        transform: scale(1.1);
-        
-    }
-    
-    
-    100% {
-        
-        transform: scale(1);
-        
-    }
+    animation: heartbeat 1.5s infinite;
     
 }
 
-
-
-@keyframes proposalGlow {
-    
-    from {
-        
-        filter: brightness(1);
-        
-    }
-    
-    
-    to {
-        
-        filter: brightness(1.2);
-        
-    }
-    
-}
-#proposal .yes-btn {
+.yes-btn {
     
     animation: yesPulse 1.5s infinite;
     
 }
 
-
+@keyframes proposalGlow {
+    
+    from {
+        filter: brightness(1);
+    }
+    
+    to {
+        filter: brightness(1.15);
+    }
+    
+}
 
 @keyframes yesPulse {
     
     0% {
-        
         transform: scale(1);
-        
     }
-    
     
     50% {
-        
-        transform: scale(1.08);
-        
+        transform: scale(1.1);
     }
     
-    
     100% {
-        
         transform: scale(1);
-        
     }
     
 }
 
-
-
-
-
-#proposal .no-btn:hover {
+.no-btn:hover {
     
     transform: scale(1.12);
     
-    transition: 0.3s;
-    
+}
+/* =====================================
+   PROJECT HAYATI - PART 2
+===================================== */
+
+/* Celebration */
+
+.bear{
+
+    font-size:100px;
+
+    opacity:0;
+
 }
 
-.special-intro {
-    animation: introZoom 6s ease forwards;
+#celebration.active .bear{
+
+    animation:bearBounce 1.5s ease forwards;
+
 }
 
-@keyframes introZoom {
+@keyframes bearBounce{
 
-    0% {
-        transform: scale(1.15);
+    0%{
+        opacity:0;
+        transform:translateY(50px) scale(.5);
     }
 
-    100% {
-        transform: scale(1);
+    60%{
+        opacity:1;
+        transform:translateY(-20px) scale(1.1);
     }
 
-}
-.special-intro {
-    animation: introZoom 6s ease forwards;
-}
-
-@keyframes introZoom {
-
-    0% {
-        transform: scale(1.15);
-    }
-
-    100% {
-        transform: scale(1);
+    100%{
+        opacity:1;
+        transform:translateY(0) scale(1);
     }
 
 }
 
-#gfDayText {
+/* Love Progress */
+
+.love-bar{
+
+    width:85%;
+
+    height:24px;
+
+    margin:20px auto;
+
+    border-radius:999px;
+
+    overflow:hidden;
+
+    background:rgba(255,255,255,.35);
+
+}
+
+.progress{
+
+    width:1%;
+
+    height:100%;
+
+    background:#fff;
+
+    border-radius:999px;
+
+    transition:.3s;
+
+}
+
+/* Intro Screen */
+
+.special-intro{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:100%;
+
+    background:#000;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-direction:column;
+
+    overflow:hidden;
+
+    z-index:9999;
+
+    transition:opacity 2s ease;
+
+}
+
+#gfDayText{
+
+    color:#7ec8ff;
+
+    font-size:2rem;
+
+    text-align:center;
 
     text-shadow:
         0 0 10px #4aa3ff,
         0 0 20px #4aa3ff,
         0 0 35px white;
 
-    letter-spacing: 2px;
+    letter-spacing:2px;
+
+    z-index:2;
+
+}
+
+#heartContainer{
+
+    position:absolute;
+
+    inset:0;
+
+    overflow:hidden;
+
+}
+
+.blue-heart{
+
+    position:absolute;
+
+    top:-30px;
+
+    color:#4aa3ff;
+
+    animation:fall linear forwards;
+
+}
+
+@keyframes fall{
+
+    from{
+
+        transform:translateY(-50px);
+
+        opacity:1;
+
+    }
+
+    to{
+
+        transform:translateY(110vh);
+
+        opacity:0;
+
+    }
+
+}
+
+/* Floating hearts on celebration */
+
+.floating-heart{
+
+    position:absolute;
+
+    bottom:20%;
+
+    font-size:26px;
+
+    animation:floatHeart 3s linear forwards;
+
+}
+
+@keyframes floatHeart{
+
+    from{
+
+        transform:translateY(0);
+
+        opacity:1;
+
+    }
+
+    to{
+
+        transform:translateY(-250px);
+
+        opacity:0;
+
+    }
+
+}
+
+/* Heart Burst */
+
+.burst-heart{
+
+    position:fixed;
+
+    z-index:99999;
+
+    font-size:24px;
+
+    pointer-events:none;
+
+    animation:heartBurst 1s ease forwards;
+
+}
+
+@keyframes heartBurst{
+
+    from{
+
+        transform:translate(0,0) scale(1);
+
+        opacity:1;
+
+    }
+
+    to{
+
+        transform:translate(var(--x),var(--y)) scale(0);
+
+        opacity:0;
+
+    }
+
+}
+
+/* Letter Animation */
+
+#letter p{
+
+    opacity:0;
+
+    animation:letterReveal 2s ease forwards;
+
+}
+
+@keyframes letterReveal{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+        filter:blur(5px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+        filter:blur(0);
+
+    }
+
+}
+
+/* Slide Exit */
+
+.slide.exit{
+
+    opacity:0;
+
+    transform:translateX(-60px) scale(.95);
+
+}
+
+/* Intro Zoom */
+
+.special-intro{
+
+    animation:introZoom 6s ease forwards;
+
+}
+
+@keyframes introZoom{
+
+    0%{
+
+        transform:scale(1.15);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
 
 }
