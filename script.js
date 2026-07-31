@@ -228,55 +228,35 @@ function typeGFDay(){
         gfIndex++;
 
 
-        setTimeout(typeGFDay,120);
+    // Fade intro away
 
-
-    }
-
-
-}
-
-
-
-typeGFDay();
-
-
-
-
-
-
-// Fade intro away
-
-setTimeout(()=>{
-
+setTimeout(() => {
 
     const intro = document.getElementById("specialIntro");
 
-
-
-    if(intro){
-
+    if (intro) {
 
         intro.style.transition = "opacity 2s ease";
 
-
         intro.style.opacity = "0";
 
-
-
-        setTimeout(()=>{
-
+        setTimeout(() => {
 
             intro.style.display = "none";
 
+            slides[0].classList.add("active");
 
-        },2000);
+            typeTitle();
 
+            setTimeout(typeMessage, 1500);
+
+        }, 2000);
 
     }
 
+}, 6000);
 
-},5000);
+
 
 
 
