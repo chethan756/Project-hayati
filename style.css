@@ -1,282 +1,349 @@
 /* =====================================
-   PROJECT HAYATI - PART 1
+   PROJECT HAYATI - FINAL STYLE
 ===================================== */
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
 }
+
 
 body {
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    position: relative;
-    background: linear-gradient(135deg, #ff758c, #ff7eb3, #ffd1dc);
+
+    width:100%;
+    height:100vh;
+    overflow:hidden;
+    position:relative;
+
+    background:
+    linear-gradient(
+        135deg,
+        #ff758c,
+        #ff7eb3,
+        #ffd1dc
+    );
+
 }
 
-/* Floating background hearts */
+
+/* Floating Hearts Background */
 
 body::before {
-    content: "❤️ 💕 💖 💗 💘";
-    position: absolute;
-    inset: 0;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    font-size: 40px;
-    opacity: .18;
-    animation: floatHearts 10s linear infinite;
-    pointer-events: none;
+
+    content:"❤️ 💕 💖 💗 💘";
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:space-around;
+
+    align-items:center;
+
+    font-size:40px;
+
+    opacity:.18;
+
+    animation:floatHearts 10s linear infinite;
+
+    pointer-events:none;
+
 }
+
 
 @keyframes floatHearts {
-    
-    from {
-        transform: translateY(100vh);
+
+    from{
+        transform:translateY(100vh);
     }
-    
-    to {
-        transform: translateY(-100vh);
+
+    to{
+        transform:translateY(-100vh);
     }
-    
+
 }
 
+
+
+
+
 .app {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
+
+    width:100%;
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
 }
+
+
+
+
 
 /* Slides */
 
+
 .slide {
-    
-    position: absolute;
-    
-    width: 90%;
-    
-    max-width: 520px;
-    
-    padding: 35px;
-    
-    border-radius: 25px;
-    
-    background: rgba(255, 255, 255, .20);
-    
-    backdrop-filter: blur(14px);
-    
-    text-align: center;
-    
-    opacity: 0;
-    
-    transform: translateX(70px) scale(.95);
-    
-    pointer-events: none;
-    
-    transition: .8s ease;
-    
+
+    position:absolute;
+
+    width:90%;
+
+    max-width:520px;
+
+    max-height:90vh;
+
+    overflow-y:auto;
+
+    padding:35px;
+
+    border-radius:25px;
+
+
+    background:
+    rgba(255,255,255,.20);
+
+
+    backdrop-filter:blur(14px);
+
+
+    text-align:center;
+
+
+    opacity:0;
+
+
+    transform:
+    translateX(70px)
+    scale(.95);
+
+
+    pointer-events:none;
+
+
+    transition:.8s ease;
+
 }
+
+
 
 .slide.active {
-    
-    opacity: 1;
-    
-    transform: translateX(0) scale(1);
-    
-    pointer-events: auto;
-    
+
+    opacity:1;
+
+    transform:
+    translateX(0)
+    scale(1);
+
+
+    pointer-events:auto;
+
 }
+
+
+
+
 
 h1 {
-    
-    color: #fff;
-    
-    font-size: 2.4rem;
-    
-    margin-bottom: 20px;
-    
+
+    color:white;
+
+    font-size:2.4rem;
+
+    margin-bottom:20px;
+
 }
+
+
 
 h2 {
-    
-    color: #fff;
-    
-    margin-bottom: 15px;
-    
+
+    color:white;
+
 }
 
+
+
 p {
-    
-    color: #fff;
-    
-    line-height: 1.7;
-    
-    font-size: 1.1rem;
-    
-    margin-bottom: 25px;
-    
+
+    color:white;
+
+    line-height:1.7;
+
+    font-size:1.1rem;
+
+    margin-bottom:25px;
+
 }
+
+
+
+
 
 /* Buttons */
 
+
 button {
-    
-    border: none;
-    
-    cursor: pointer;
-    
-    padding: 15px 30px;
-    
-    border-radius: 999px;
-    
-    font-size: 1rem;
-    
-    transition: .3s;
-    
+
+    border:none;
+
+    cursor:pointer;
+
+    padding:15px 30px;
+
+    border-radius:999px;
+
+    font-size:1rem;
+
+    transition:.3s;
+
 }
+
 
 button:hover {
-    
-    transform: scale(1.08);
-    
+
+    transform:scale(1.08);
+
 }
+
+
 
 .heart-btn {
-    
-    background: #fff;
-    
-    color: #ff4b6e;
-    
-    box-shadow: 0 0 20px rgba(255, 255, 255, .7);
-    
-    animation: heartbeat 1.5s infinite;
-    
+
+    background:white;
+
+    color:#ff4b6e;
+
+    box-shadow:
+    0 0 20px rgba(255,255,255,.7);
+
+    animation:heartbeat 1.5s infinite;
+
 }
+
+
+
 
 .yes-btn {
-    
-    background: #ff4b6e;
-    
-    color: #fff;
-    
+
+    background:#ff4b6e;
+
+    color:white;
+
+    animation:yesPulse 1.5s infinite;
+
 }
+
+
 
 .no-btn {
-    
-    background: #fff;
-    
-    color: #555;
-    
+
+    background:white;
+
+    color:#555;
+
 }
+
+
 
 @keyframes heartbeat {
-    
-    0% {
-        transform: scale(1);
+
+    50%{
+        transform:scale(1.08);
     }
-    
-    50% {
-        transform: scale(1.08);
-    }
-    
-    100% {
-        transform: scale(1);
-    }
-    
+
 }
 
-.memory {
-    
-    font-size: 45px;
-    
-    margin: 20px 0;
-    
-    animation: sparkle 2s infinite;
-    
+
+
+
+@keyframes yesPulse {
+
+    50%{
+        transform:scale(1.1);
+    }
+
 }
 
-@keyframes sparkle {
-    
-    0% {
-        transform: scale(1);
-    }
-    
-    50% {
-        transform: scale(1.15);
-    }
-    
-    100% {
-        transform: scale(1);
-    }
-    
-}
+
+
+
+
+
 
 /* Proposal */
 
+
 #proposal {
-    
-    animation: proposalGlow 3s infinite alternate;
-    
+
+    animation:proposalGlow 3s infinite alternate;
+
 }
+
+
 
 #proposal h1 {
-    
-    animation: heartbeat 1.5s infinite;
-    
+
+    animation:heartbeat 1.5s infinite;
+
 }
 
-.yes-btn {
-    
-    animation: yesPulse 1.5s infinite;
-    
-}
+
 
 @keyframes proposalGlow {
-    
-    from {
-        filter: brightness(1);
+
+    from{
+        filter:brightness(1);
     }
-    
-    to {
-        filter: brightness(1.15);
+
+    to{
+        filter:brightness(1.15);
     }
-    
+
 }
 
-@keyframes yesPulse {
-    
-    0% {
-        transform: scale(1);
-    }
-    
-    50% {
-        transform: scale(1.1);
-    }
-    
-    100% {
-        transform: scale(1);
-    }
-    
+
+
+
+
+/* Memory */
+
+
+.memory {
+
+    font-size:45px;
+
+    animation:sparkle 2s infinite;
+
 }
 
-.no-btn:hover {
-    
-    transform: scale(1.12);
-    
+
+
+@keyframes sparkle {
+
+    50%{
+        transform:scale(1.15);
+    }
+
 }
-/* =====================================
-   PROJECT HAYATI - PART 2
-===================================== */
+
+
+
+
+
 
 /* Celebration */
 
-.bear{
+
+.bear {
 
     font-size:100px;
 
@@ -284,18 +351,18 @@ button:hover {
 
 }
 
-#celebration.active .bear{
 
-    animation:bearBounce 1.5s ease forwards;
+
+#celebration.active .bear {
+
+    animation:
+    bearBounce 1.5s forwards;
 
 }
 
-@keyframes bearBounce{
 
-    0%{
-        opacity:0;
-        transform:translateY(50px) scale(.5);
-    }
+
+@keyframes bearBounce {
 
     60%{
         opacity:1;
@@ -304,14 +371,19 @@ button:hover {
 
     100%{
         opacity:1;
-        transform:translateY(0) scale(1);
+        transform:translateY(0);
     }
 
 }
 
-/* Love Progress */
 
-.love-bar{
+
+
+
+/* Love Bar */
+
+
+.love-bar {
 
     width:85%;
 
@@ -323,39 +395,41 @@ button:hover {
 
     overflow:hidden;
 
-    background:rgba(255,255,255,.35);
+    background:
+    rgba(255,255,255,.35);
 
 }
 
-.progress{
+
+
+.progress {
 
     width:1%;
 
     height:100%;
 
-    background:#fff;
+    background:white;
 
     border-radius:999px;
 
-    transition:.3s;
-
 }
 
-/* Intro Screen */
 
-.special-intro{
+
+
+
+
+
+/* Special Intro */
+
+
+.special-intro {
 
     position:fixed;
 
-    top:0;
+    inset:0;
 
-    left:0;
-
-    width:100%;
-
-    height:100%;
-
-    background:#000;
+    background:black;
 
     display:flex;
 
@@ -365,15 +439,15 @@ button:hover {
 
     flex-direction:column;
 
-    overflow:hidden;
-
     z-index:9999;
 
-    transition:opacity 2s ease;
+    animation:introZoom 6s forwards;
 
 }
 
-#gfDayText{
+
+
+#gfDayText {
 
     color:#7ec8ff;
 
@@ -382,27 +456,14 @@ button:hover {
     text-align:center;
 
     text-shadow:
-        0 0 10px #4aa3ff,
-        0 0 20px #4aa3ff,
-        0 0 35px white;
-
-    letter-spacing:2px;
-
-    z-index:2;
+    0 0 10px #4aa3ff,
+    0 0 20px #4aa3ff;
 
 }
 
-#heartContainer{
 
-    position:absolute;
 
-    inset:0;
-
-    overflow:hidden;
-
-}
-
-.blue-heart{
+.blue-heart {
 
     position:absolute;
 
@@ -414,15 +475,9 @@ button:hover {
 
 }
 
-@keyframes fall{
 
-    from{
 
-        transform:translateY(-50px);
-
-        opacity:1;
-
-    }
+@keyframes fall {
 
     to{
 
@@ -434,43 +489,16 @@ button:hover {
 
 }
 
-/* Floating hearts on celebration */
 
-.floating-heart{
 
-    position:absolute;
 
-    bottom:20%;
 
-    font-size:26px;
 
-    animation:floatHeart 3s linear forwards;
-
-}
-
-@keyframes floatHeart{
-
-    from{
-
-        transform:translateY(0);
-
-        opacity:1;
-
-    }
-
-    to{
-
-        transform:translateY(-250px);
-
-        opacity:0;
-
-    }
-
-}
 
 /* Heart Burst */
 
-.burst-heart{
+
+.burst-heart {
 
     position:fixed;
 
@@ -478,25 +506,19 @@ button:hover {
 
     font-size:24px;
 
-    pointer-events:none;
-
-    animation:heartBurst 1s ease forwards;
+    animation:heartBurst 1s forwards;
 
 }
 
-@keyframes heartBurst{
 
-    from{
 
-        transform:translate(0,0) scale(1);
-
-        opacity:1;
-
-    }
+@keyframes heartBurst {
 
     to{
 
-        transform:translate(var(--x),var(--y)) scale(0);
+        transform:
+        translate(var(--x),var(--y))
+        scale(0);
 
         opacity:0;
 
@@ -504,69 +526,58 @@ button:hover {
 
 }
 
-/* Letter Animation */
 
-#letter p{
+
+
+
+
+/* Slide Movement */
+
+
+.slide.exit {
 
     opacity:0;
 
-    animation:letterReveal 2s ease forwards;
+    transform:
+    translateX(-60px)
+    scale(.95);
 
 }
 
-@keyframes letterReveal{
+
+
+
+
+@keyframes introZoom {
 
     from{
-
-        opacity:0;
-
-        transform:translateY(40px);
-
-        filter:blur(5px);
-
-    }
-
-    to{
-
-        opacity:1;
-
-        transform:translateY(0);
-
-        filter:blur(0);
-
-    }
-
-}
-
-/* Slide Exit */
-
-.slide.exit{
-
-    opacity:0;
-
-    transform:translateX(-60px) scale(.95);
-
-}
-
-/* Intro Zoom */
-
-.special-intro{
-
-    animation:introZoom 6s ease forwards;
-
-}
-
-@keyframes introZoom{
-
-    0%{
-
         transform:scale(1.15);
-
     }
 
-    100%{
-
+    to{
         transform:scale(1);
+    }
+
+}
+
+
+
+
+@media(max-width:600px){
+
+    h1{
+        font-size:2rem;
+    }
+
+
+    p{
+        font-size:1rem;
+    }
+
+
+    .slide{
+
+        padding:25px;
 
     }
 
